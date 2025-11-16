@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelSage LLC - Raw, Gritty, Southern Cinema</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3d5266 100%);
+            color: #f4f4f4;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+            margin: 0 auto 30px;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            font-weight: 700;
+            letter-spacing: 3px;
+            color: #e8e8e8;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            font-style: italic;
+            color: #c9c9c9;
+            margin-bottom: 30px;
+        }
+
+        .mission {
+            font-size: 1.3em;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #7f8c8d;
+            border-radius: 5px;
+        }
+
+        .content-section {
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+            font-weight: 400;
+            border-bottom: 2px solid #7f8c8d;
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #ecf0f1;
+        }
+
+        .project-card .genre {
+            font-size: 0.9em;
+            color: #95a5a6;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .project-card p {
+            line-height: 1.7;
+            color: #bdc3c7;
+        }
+
+        .team {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .team-member h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #ecf0f1;
+        }
+
+        .team-member .role {
+            font-size: 1em;
+            color: #95a5a6;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 60px;
+        }
+
+        .contact h2 {
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .contact a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact a:hover {
+            color: #5dade2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            color: #95a5a6;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .tagline {
+                font-size: 1.3em;
+            }
+
+            .mission {
+                font-size: 1.1em;
+                padding: 20px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="ReelSage/Logo.jpeg" alt="ReelSage Logo" class="logo">
+            <div class="tagline">Raw. Gritty. Bold.</div>
+            <div class="subtitle">Film for the underdogs.</div>
+        </header>
+
+        <div class="content-section">
+            <h2 style="text-align: center;">Our Vision</h2>
+            <p style="text-align: center;">ReelSage LLC creates unflinching, authentic films that give voice to the silenced and light to the forgotten. Founded by an American–Turkish team, our work bridges cultures and histories — revealing the beauty, brutality, and truth that connect us all.</p>
+        </div>
+
+        <div class="content-section">
+            <h2 style="text-align: center;">Current Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>The Mercury Veil</h3>
+                    <div class="genre">Georgian Gothic Horror</div>
+                    <p>The origin story of the Mad Hatter through the lens of mercury poisoning in Georgian hat-making factories. A dark exploration of industrial exploitation and the madness it creates. Currently seeking UK production partnerships.</p>
+                    <p style="margin-top: 20px;"><a href="https://mercury-veil-treatment.vercel.app/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Treatment →</a></p>
+                    <p style="margin-top: 10px;"><a href="https://the-mercury-veil-partner-pitch.vercel.app/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Partnership Proposal →</a></p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Downstream</h3>
+                    <div class="genre">Environmental Thriller</div>
+                    <p>A small Tennessee community fights back against corporate contamination poisoning their water supply. A story about justice, accountability, and the courage it takes to stand up when powerful forces want you silent.</p>
+                    <p style="margin-top: 20px;"><a href="https://adioaesa.github.io/downstream-treatment/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Treatment →</a></p>
+                    <p style="margin-top: 10px;"><a href="https://downstream-jade.vercel.app/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Investment Package →</a></p>
+                </div>
+
+                <div class="project-card">
+                    <h3>The Last Copper Run</h3>
+                    <div class="genre">Appalachian Survival Thriller</div>
+                    <p>When federal agents kill her moonshiner father in 1928 Appalachia, pregnant Birdie McCallister has forty-eight hours to carry his fifty-pound copper still sixty miles to Knoxville—the only way to get money for medicine, train fare, and a future for her unborn child.</p>
+                    <p style="margin-top: 20px;"><a href="https://last-copper-run.vercel.app/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Treatment →</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2 style="text-align: center;">The Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="ReelSage/Ayla.jpeg" alt="Ayla Demirci" style="width: 300px; height: 400px; object-fit: cover; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <h3>Ayla Demirci</h3>
+                    <div class="role">Writer / Director / Actress</div>
+                    <p>Multi-hyphenate creative with 30+ IMDb credits and a passion for historical horror and forgotten tragedies.</p>
+                    <p style="margin-top: 15px;"><a href="https://www.imdb.com/name/nm14593886/?ref_=ext_shr_lnk" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">IMDb →</a></p>
+                </div>
+
+                <div class="team-member">
+                    <img src="ReelSage/Ahmet.png" alt="Ahmet Demirci" style="width: 300px; height: 400px; object-fit: cover; margin-bottom: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                    <h3>Ahmet Demirci</h3>
+                    <div class="role">Executive Producer</div>
+                    <p>Strategic producer focused on bringing authentic Southern stories to life with uncompromising vision.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="contact">
+            <h2>Get In Touch</h2>
+            <p>Interested in partnering, investing, or learning more about our projects?</p>
+            <p>ReelSage LLC | Nashville, Tennessee</p>
+            <p style="margin-top: 20px;"><a href="mailto:Aylamahree@gmail.com">Aylamahree@gmail.com</a></p>
+            <p><a href="tel:+16154855008">(615) 485-5008</a></p>
+        </div>
+
+        <footer>
+            <img src="ReelSage/Logo.jpeg" alt="ReelSage Logo" class="logo" style="max-width: 200px; margin-bottom: 20px;">
+            <p>&copy; 2025 Ayla Demirci. All rights reserved.</p>
+            <p>All content, including but not limited to scripts, treatments, concepts, characters, and intellectual property, are the exclusive property of Ayla Demirci. Unauthorized reproduction, distribution, or use of any content is strictly prohibited.</p>
+            <p>Raw, Gritty, Southern Cinema for the Underdogs.</p>
+        </footer>
+    </div>
+</body>
+</html>
