@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writer/Producer Statement - The Last Copper Run</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            background: linear-gradient(180deg, #0a0908 0%, #1a1714 50%, #0d0b09 100%);
+            color: #e8e0d5;
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(184, 115, 51, 0.3);
+        }
+
+        .header h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: #b87333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .header .subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.3em;
+            color: #8a7968;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        .header .author-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #c9b896;
+            margin-bottom: 5px;
+        }
+
+        .header .author-title {
+            font-size: 1rem;
+            color: #6b5d4d;
+            letter-spacing: 0.1em;
+        }
+
+        .statement-content {
+            font-size: 1.25rem;
+            color: #d4ccc0;
+        }
+
+        .statement-content p {
+            margin-bottom: 28px;
+            text-align: justify;
+            text-indent: 2em;
+        }
+
+        .statement-content p:first-of-type {
+            text-indent: 0;
+        }
+
+        .statement-content p:first-of-type::first-letter {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 12px;
+            padding-top: 8px;
+            color: #b87333;
+        }
+
+        .section-header {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            letter-spacing: 0.2em;
+            color: #b87333;
+            text-transform: uppercase;
+            margin-top: 45px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(184, 115, 51, 0.2);
+        }
+
+        .hero-image {
+            width: 100%;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-image .caption {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            color: #b87333;
+            text-transform: uppercase;
+            background: rgba(10, 9, 8, 0.8);
+            padding: 8px 15px;
+        }
+
+        .image-float-right {
+            float: right;
+            width: 320px;
+            margin: 0 0 25px 35px;
+            position: relative;
+        }
+
+        .image-float-right img {
+            width: 100%;
+            height: auto;
+        }
+
+        .image-float-right .img-caption {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: #8a7968;
+            text-align: center;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(184, 115, 51, 0.2);
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .signature {
+            margin-top: 50px;
+            padding-top: 35px;
+            border-top: 1px solid rgba(184, 115, 51, 0.2);
+            text-align: right;
+        }
+
+        .signature .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-style: italic;
+            color: #c9b896;
+            margin-bottom: 5px;
+        }
+
+        .signature .name a {
+            color: #c9b896;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(184, 115, 51, 0.4);
+            transition: border-color 0.3s;
+        }
+
+        .signature .name a:hover {
+            border-color: #b87333;
+        }
+
+        .signature .title {
+            font-size: 1rem;
+            color: #6b5d4d;
+            letter-spacing: 0.1em;
+            line-height: 1.6;
+        }
+
+        .signature .title a {
+            text-decoration: none;
+            border-bottom: 1px solid rgba(184, 115, 51, 0.3);
+            transition: border-color 0.3s;
+        }
+
+        .signature .title a:hover {
+            border-color: #b87333;
+        }
+
+        .signature .title a.project-link {
+            color: #b87333;
+        }
+
+        .signature .title a.company-link {
+            color: #6b5d4d;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(184, 115, 51, 0.15);
+            text-align: center;
+        }
+
+        .footer .company {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.25em;
+            color: #6b5d4d;
+            text-transform: uppercase;
+        }
+
+        .footer .company a {
+            color: #6b5d4d;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(184, 115, 51, 0.2);
+            transition: border-color 0.3s;
+        }
+
+        .footer .company a:hover {
+            border-color: #b87333;
+        }
+
+        .footer .tagline {
+            font-style: italic;
+            font-size: 0.85rem;
+            color: #5a4d3d;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 40px 25px; }
+            .header h1 { font-size: 1.8rem; }
+            .statement-content { font-size: 1.1rem; }
+            .image-float-right {
+                float: none;
+                width: 100%;
+                margin: 30px 0;
+            }
+        }
+
+        @media print {
+            body { background: white; color: #1a1a1a; }
+            .header h1, .section-header { color: #8b4513; }
+            .statement-content, .statement-content p { color: #1a1a1a; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Writer / Producer Statement</h1>
+            <div class="subtitle">The Last Copper Run</div>
+            <div class="author-name">Ayla Demirci</div>
+            <div class="author-title">Writer / Producer / Lead Actress</div>
+        </header>
+
+        <div class="statement-content">
+            <p>Birdie McCallister is doing the impossible. She's surviving a war against her own government. She's growing a human in her belly. She's carrying fifty pounds of copper through sixty miles of mountain wilderness with a forty-eight hour deadline and federal agents hunting her. Every man in her life has failed her—through death, through violence, through laws designed to kill people like her.</p>
+
+            <p>And she keeps walking.</p>
+
+            <h3 class="section-header">The History</h3>
+
+            <p>Between 1920 and 1933, the U.S. government deliberately poisoned industrial alcohol to discourage bootlegging—adding methanol, kerosene, benzene, formaldehyde, and mercury salts. They knew bootleggers would redistill it. They knew people would drink it. They knew people would die. By the time Prohibition ended, an estimated 10,000 Americans had been killed by their own government's poisoning program.</p>
+
+            <p>In Appalachian Tennessee, pure copper-pot moonshine wasn't just illegal whiskey—it was the only safe alcohol left. The moonshiners weren't criminals. They were craftsmen keeping their communities alive.</p>
+
+            <h3 class="section-header">The Story</h3>
+
+            <p>Birdie's lover Tommy died from government poison—days of screaming as his organs failed. Her father just died in a federal raid protecting the copper still that makes the only safe whiskey left in Appalachia. Now she has forty-eight hours to deliver that still to a buyer in Knoxville, hunted by a scarred federal agent seeking revenge.</p>
+
+            <p>Sixty miles. Fifty pounds. One woman. No way out but through.</p>
+
+            <h3 class="section-header">Why I'm Playing Her</h3>
+
+            <div class="image-float-right">
+                <img src="ayla-headshot.png" alt="Ayla Demirci">
+                <div class="img-caption">Raw. Gritty. Southern.</div>
+            </div>
+
+            <p>I'm not just writing this film—I'm playing Birdie. The physical demands are why I'm not directing. I need to be inside her completely. Over thirty screen credits have prepared me for this: lead in FREAK OFF on Prime Video, roles spanning action, horror, drama, thriller. I'm drawn to women who've been broken and rebuilt themselves. Birdie is that, distilled to its essence.</p>
+
+            <div class="clearfix"></div>
+
+            <h3 class="section-header">Why It Matters</h3>
+
+            <p>Birdie's father died for legacy. Her lover died from government poison. She refuses to follow them. She delivers the copper, then she's done. She chooses life over legacy. Thirty years later, she tells her daughter: "Your grandfather died for copper. I lived because I let it go."</p>
+
+            <p>That's the ending I want to give audiences. Not a woman destroyed by the weight she carries, but a woman who carries it only as far as she needs to.</p>
+
+            <p>This is important American history. Birdie is an important female character. I intend to bring both to the screen.</p>
+
+            <div class="hero-image">
+                <img src="ayla-fullbody.png" alt="Ayla Demirci">
+                <div class="caption">Ayla Demirci</div>
+            </div>
+        </div>
+
+        <div class="signature">
+            <div class="name"><a href="https://www.imdb.com/name/nm14593886/" target="_blank">Ayla Demirci</a></div>
+            <div class="title"><a href="https://last-copper-run.vercel.app/" target="_blank" class="project-link">The Last Copper Run</a><br>Writer / Producer / Lead Actress<br><a href="https://reelsage.vercel.app/" target="_blank" class="company-link">Reelsage LLC</a></div>
+        </div>
+
+        <footer class="footer">
+            <div class="company"><a href="https://reelsage.vercel.app/" target="_blank">Reelsage LLC</a></div>
+            <div class="tagline">Raw. Gritty. Bold.</div>
+        </footer>
+    </div>
+</body>
+</html>
