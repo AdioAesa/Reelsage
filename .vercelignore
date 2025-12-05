@@ -1,0 +1,30 @@
+# Exclude unnecessary files from Vercel deployment
+*.pdf
+*.fdx
+*.pages
+*.docx
+*.xlsx
+*.zip
+*.heic
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mp4
+*.mov
+*.DS_Store
+
+# Exclude large directories
+tmvphotofiles/
+last-copper-run-lookbook/
+last-copper-run-deploy/
+mercury-veil-project/
+reelsage-website/
+radiant/
+tax/
+ReelSage-/
+downstream-characters/
+doenstream/
+
+# Keep only the essential HTML and CSS files needed for deployment
