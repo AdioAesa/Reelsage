@@ -6,16 +6,9 @@
 *.xlsx
 *.zip
 *.heic
-*.png
-*.jpg
-*.jpeg
-*.webp
-*.gif
-*.mp4
-*.mov
 *.DS_Store
 
-# Exclude large directories
+# Exclude large directories and their images
 tmvphotofiles/
 last-copper-run-lookbook/
 last-copper-run-deploy/
@@ -27,4 +20,5 @@ ReelSage-/
 downstream-characters/
 doenstream/
 
-# Keep only the essential HTML and CSS files needed for deployment
+# Keep assets directory for deployment (needed for logos and images)
+!assets/
