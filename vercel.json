@@ -1,4 +1,11 @@
 {
   "name": "reelsage-homepage",
-  "version": 2
+  "version": 2,
+  "redirects": [
+    {
+      "source": "/invest.html",
+      "destination": "/partners.html",
+      "permanent": true
+    }
+  ]
 }
