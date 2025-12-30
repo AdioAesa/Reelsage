@@ -22,3 +22,4 @@ doenstream/
 
 # Keep assets directory for deployment (needed for logos and images)
 !assets/
+!assets/*.pdf
