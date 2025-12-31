@@ -219,8 +219,10 @@
             }
 
             .cast-lookbook-pdf {
-                padding: 10px;
-                margin: 10px 0;
+                padding: 0;
+                margin: 0 0 20px 0;
+                background: transparent;
+                border: none;
             }
 
             /* Hide PDF, show image on mobile */
@@ -230,6 +232,10 @@
 
             .mobile-lookbook {
                 display: block !important;
+            }
+
+            .mobile-lookbook img {
+                border: 2px solid #D4A574;
             }
 
             .cast-member {
@@ -253,36 +259,8 @@
 
         @media (max-width: 400px) {
             .cast-lookbook-pdf {
-                padding: 8px;
+                padding: 0;
             }
-
-            .mobile-lookbook img {
-                height: 300px !important;
-            }
-        }
-
-        /* Smooth scrolling for mobile lookbook */
-        .mobile-lookbook > div {
-            scrollbar-width: thin;
-            scrollbar-color: #D4A574 rgba(0, 0, 0, 0.3);
-        }
-
-        .mobile-lookbook > div::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .mobile-lookbook > div::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
-        }
-
-        .mobile-lookbook > div::-webkit-scrollbar-thumb {
-            background: #D4A574;
-            border-radius: 4px;
-        }
-
-        .mobile-lookbook > div::-webkit-scrollbar-thumb:hover {
-            background: #c89564;
         }
 
         .contact {
@@ -436,18 +414,9 @@
                         <object data="FILE_6256.pdf" type="application/pdf" class="desktop-pdf">
                             <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="width: 100%; height: auto; display: block; border-radius: 3px;">
                         </object>
-                        <!-- Mobile: Image Preview with PDF link -->
+                        <!-- Mobile: Image Display -->
                         <div class="mobile-lookbook" style="display: none;">
-                            <div style="text-align: center; margin-bottom: 15px; padding: 15px; background: rgba(212, 165, 116, 0.1); border-radius: 5px; border: 1px solid #D4A574;">
-                                <p style="color: #D4A574; font-weight: bold; margin-bottom: 10px; font-size: 0.95em;">📄 CAST LOOKBOOK PREVIEW</p>
-                                <p style="color: #bdc3c7; font-size: 0.85em; margin-bottom: 15px;">Tap below to view the full 2-page cast lookbook with character details and mood board</p>
-                                <a href="FILE_6256.pdf" target="_blank" style="color: #fff; background: #D4A574; text-decoration: none; font-weight: bold; padding: 15px 30px; display: inline-block; border-radius: 5px; font-size: 1.1em; box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);">
-                                    View Full Cast Lookbook →
-                                </a>
-                            </div>
-                            <div style="border-radius: 3px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-                                <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook - Page 1" style="width: 100%; height: auto; display: block;">
-                            </div>
+                            <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="width: 100%; height: auto; display: block; border-radius: 3px;">
                         </div>
                     </div>
 
@@ -470,12 +439,6 @@
                         </div>
                     </div>
 
-                    <!-- Footer -->
-                    <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-                        <p style="color: #D4A574; font-style: italic; font-size: 1.2em;">Raw. Gritty. Bold.</p>
-                        <p style="color: #95a5a6; margin-top: 8px; font-size: 0.9em;">Film for the underdogs.</p>
-                        <p style="color: #7f8c8d; margin-top: 5px; font-size: 0.85em;">A REELSAGE LLC PRODUCTION</p>
-                    </div>
                 </div>
             </div>
         </div>
