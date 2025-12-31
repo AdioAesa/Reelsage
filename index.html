@@ -190,7 +190,7 @@
         /* Mobile Responsive Styles */
         @media (max-width: 900px) {
             .cast-lookbook {
-                grid-column: span 1;
+                grid-column: auto;
             }
 
             .cast-grid {
@@ -204,12 +204,22 @@
         }
 
         @media (max-width: 600px) {
+            .cast-lookbook {
+                grid-column: auto;
+            }
+
             .cast-lookbook-pdf {
                 padding: 10px;
+                margin: 10px 0;
             }
 
             .cast-lookbook-pdf object {
-                height: 300px;
+                height: 350px;
+            }
+
+            .cast-member {
+                padding-left: 12px;
+                border-left-width: 2px;
             }
 
             .cast-member h4 {
@@ -218,6 +228,21 @@
 
             .cast-member p {
                 font-size: 0.85em;
+            }
+
+            .cast-grid {
+                gap: 20px;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .cast-lookbook-pdf object {
+                height: 280px;
+            }
+
+            .cast-lookbook-pdf {
+                padding: 8px;
             }
         }
 
