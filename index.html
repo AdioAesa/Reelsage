@@ -249,6 +249,34 @@
             .cast-lookbook-pdf {
                 padding: 8px;
             }
+
+            .mobile-lookbook img {
+                height: 300px !important;
+            }
+        }
+
+        /* Smooth scrolling for mobile lookbook */
+        .mobile-lookbook > div {
+            scrollbar-width: thin;
+            scrollbar-color: #D4A574 rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-lookbook > div::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .mobile-lookbook > div::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+        }
+
+        .mobile-lookbook > div::-webkit-scrollbar-thumb {
+            background: #D4A574;
+            border-radius: 4px;
+        }
+
+        .mobile-lookbook > div::-webkit-scrollbar-thumb:hover {
+            background: #c89564;
         }
 
         .contact {
@@ -402,9 +430,11 @@
                         <object data="FILE_6256.pdf" type="application/pdf" class="desktop-pdf">
                             <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="width: 100%; height: auto; display: block; border-radius: 3px;">
                         </object>
-                        <!-- Mobile: Image with PDF link -->
+                        <!-- Mobile: Scrollable Image with PDF link -->
                         <div class="mobile-lookbook" style="display: none;">
-                            <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="width: 100%; height: auto; display: block; border-radius: 3px; margin-bottom: 15px;">
+                            <div style="overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; margin-bottom: 15px; border-radius: 3px;">
+                                <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="max-width: none; width: auto; height: 400px; display: block; border-radius: 3px;">
+                            </div>
                             <p style="text-align: center;">
                                 <a href="FILE_6256.pdf" target="_blank" style="color: #D4A574; text-decoration: none; font-weight: bold; border: 2px solid #D4A574; padding: 12px 24px; display: inline-block; border-radius: 5px; font-size: 1em;">
                                     📄 View Full Cast Lookbook
