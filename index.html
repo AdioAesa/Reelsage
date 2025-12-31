@@ -143,11 +143,15 @@
             border: 2px solid #D4A574;
         }
 
-        .cast-lookbook-pdf object {
+        .cast-lookbook-pdf object.desktop-pdf {
             display: block;
             border-radius: 3px;
             width: 100%;
             height: 500px;
+        }
+
+        .mobile-lookbook {
+            display: none;
         }
 
         .cast-grid {
@@ -213,8 +217,13 @@
                 margin: 10px 0;
             }
 
-            .cast-lookbook-pdf object {
-                height: 350px;
+            /* Hide PDF, show image on mobile */
+            .cast-lookbook-pdf object.desktop-pdf {
+                display: none !important;
+            }
+
+            .mobile-lookbook {
+                display: block !important;
             }
 
             .cast-member {
@@ -237,10 +246,6 @@
         }
 
         @media (max-width: 400px) {
-            .cast-lookbook-pdf object {
-                height: 280px;
-            }
-
             .cast-lookbook-pdf {
                 padding: 8px;
             }
@@ -391,15 +396,21 @@
 
                 <!-- Cast Lookbook Box - Spans 2 columns -->
                 <div class="project-card cast-lookbook">
-                    <!-- PDF Embed -->
+                    <!-- PDF/Image Display -->
                     <div class="cast-lookbook-pdf">
-                        <object data="FILE_6256.pdf" type="application/pdf">
-                            <p style="text-align: center; padding: 40px;">
-                                <a href="FILE_6256.pdf" target="_blank" style="color: #D4A574; text-decoration: none; font-weight: bold; border: 2px solid #D4A574; padding: 15px 30px; display: inline-block; border-radius: 5px; font-size: 1.1em;">
-                                    📄 View Cast Lookbook PDF
+                        <!-- Desktop: PDF Embed -->
+                        <object data="FILE_6256.pdf" type="application/pdf" class="desktop-pdf">
+                            <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="width: 100%; height: auto; display: block; border-radius: 3px;">
+                        </object>
+                        <!-- Mobile: Image with PDF link -->
+                        <div class="mobile-lookbook" style="display: none;">
+                            <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="width: 100%; height: auto; display: block; border-radius: 3px; margin-bottom: 15px;">
+                            <p style="text-align: center;">
+                                <a href="FILE_6256.pdf" target="_blank" style="color: #D4A574; text-decoration: none; font-weight: bold; border: 2px solid #D4A574; padding: 12px 24px; display: inline-block; border-radius: 5px; font-size: 1em;">
+                                    📄 View Full Cast Lookbook
                                 </a>
                             </p>
-                        </object>
+                        </div>
                     </div>
 
                     <!-- Cast Details Grid -->
