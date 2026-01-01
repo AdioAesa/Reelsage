@@ -143,16 +143,6 @@
             border: 2px solid #D4A574;
         }
 
-        .cast-lookbook-pdf object.desktop-pdf {
-            display: block;
-            border-radius: 3px;
-            width: 100%;
-            height: 1000px;
-        }
-
-        .mobile-lookbook {
-            display: none;
-        }
 
         .cast-grid {
             display: grid;
@@ -225,16 +215,7 @@
                 border: none;
             }
 
-            /* Hide PDF, show image on mobile */
-            .cast-lookbook-pdf object.desktop-pdf {
-                display: none !important;
-            }
-
-            .mobile-lookbook {
-                display: block !important;
-            }
-
-            .mobile-lookbook img {
+            .cast-lookbook-pdf img {
                 border: 2px solid #D4A574;
             }
 
@@ -410,15 +391,9 @@
                 <div class="project-card cast-lookbook">
                     <!-- PDF/Image Display -->
                     <div class="cast-lookbook-pdf">
-                        <!-- Desktop: PDF Embed -->
-                        <object data="FILE_6256.pdf" type="application/pdf" class="desktop-pdf">
-                            <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook" style="width: 100%; height: auto; display: block; border-radius: 3px;">
-                        </object>
-                        <!-- Mobile: Both Pages as Images -->
-                        <div class="mobile-lookbook" style="display: none;">
-                            <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook - Page 1" style="width: 100%; height: auto; display: block; border-radius: 3px; margin-bottom: 10px;">
-                            <img src="cast_lookbook_page2.jpg" alt="The Last Copper Run Cast Lookbook - Page 2" style="width: 100%; height: auto; display: block; border-radius: 3px;">
-                        </div>
+                        <!-- Both Pages as Images (Desktop & Mobile) -->
+                        <img src="cast_lookbook_page1.jpg" alt="The Last Copper Run Cast Lookbook - Page 1" style="width: 100%; height: auto; display: block; border-radius: 3px; margin-bottom: 10px;">
+                        <img src="cast_lookbook_page2.jpg" alt="The Last Copper Run Cast Lookbook - Page 2" style="width: 100%; height: auto; display: block; border-radius: 3px;">
                     </div>
 
                     <!-- Cast Details Grid -->
