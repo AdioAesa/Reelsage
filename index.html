@@ -27,8 +27,8 @@
         header {
             text-align: center;
             padding: 60px 20px;
-            background: linear-gradient(135deg, #2c3e50 0%, #3d5266 100%);
-            border-radius: 10px;
+            background: linear-gradient(to bottom, #2c3e50 0%, #3d5266 70%, #000 100%);
+            border-radius: 10px 10px 0 0;
             margin-bottom: 0;
             position: relative;
             z-index: 2;
@@ -79,67 +79,84 @@
         .content-section {
             position: relative;
             margin: 0;
-            padding: 40px;
-            background: transparent;
+            padding: 0;
+            background: #000;
             border-radius: 10px 10px 0 0;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        /* Abel banner inside Projects section */
+        .abel-banner {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .abel-banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Black smoke fade at top of banner (connects to brand box) */
+        .abel-banner .smoke-top {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 80px;
+            background: linear-gradient(to bottom, #000 0%, transparent 100%);
+            pointer-events: none;
             z-index: 2;
         }
 
-        /* Rotating background images — fixed behind content */
-        .bg-rotate {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 0;
-            background: #000;
-        }
-
-        .bg-rotate img {
+        /* Black smoke fade at bottom of banner (bleeds behind projects) */
+        .abel-banner .smoke-bottom {
             position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            transform: translateY(-50%);
-            height: auto;
-        }
-
-        .bg-fade-top, .bg-fade-bottom, .bg-fade-left, .bg-fade-right {
-            position: absolute;
-            z-index: 1;
+            bottom: -60px; left: 0; right: 0;
+            height: 300px;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0.85) 70%, rgba(0,0,0,0.9) 100%);
             pointer-events: none;
+            z-index: 2;
         }
 
-        .bg-fade-top {
-            top: 0; left: 0; right: 0;
-            height: 35%;
-            background: radial-gradient(ellipse at center top, rgba(0,0,0,0.9) 0%, transparent 70%);
-        }
-
-        .bg-fade-bottom {
-            bottom: 0; left: 0; right: 0;
-            height: 35%;
-            background: radial-gradient(ellipse at center bottom, rgba(0,0,0,0.9) 0%, transparent 70%);
-        }
-
-        .bg-fade-left {
+        /* Black smoke on left/right edges */
+        .abel-banner .smoke-left {
+            position: absolute;
             top: 0; bottom: 0; left: 0;
-            width: 15%;
-            background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+            width: 60px;
+            background: linear-gradient(to right, #000, transparent);
+            pointer-events: none;
+            z-index: 2;
         }
 
-        .bg-fade-right {
+        .abel-banner .smoke-right {
+            position: absolute;
             top: 0; bottom: 0; right: 0;
-            width: 15%;
-            background: linear-gradient(to left, rgba(0,0,0,0.8), transparent);
+            width: 60px;
+            background: linear-gradient(to left, #000, transparent);
+            pointer-events: none;
+            z-index: 2;
         }
 
-        /* Spacer to reveal images before content scrolls over */
-        .img-reveal {
-            height: 80vh;
+        /* Section heading over banner */
+        .abel-banner h2 {
+            position: absolute;
+            bottom: 40px;
+            left: 0; right: 0;
+            text-align: center;
+            z-index: 3;
+            border: none;
+            font-size: 1.8em;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.9);
+        }
+
+        .projects-wrap {
             position: relative;
-            z-index: 1;
+            padding: 30px 40px 40px;
+            background: linear-gradient(to bottom, transparent 0%, rgba(44,62,80,0.5) 80px, #2c3e50 160px);
+            border-radius: 0 0 10px 10px;
+            margin-top: -160px;
+            z-index: 3;
         }
 
         h2 {
@@ -505,15 +522,6 @@
     </style>
 </head>
 <body>
-    <!-- Fixed rotating images -->
-    <div class="bg-rotate">
-        <img src="./assets/Abel.jpeg" alt="">
-        <div class="bg-fade-top"></div>
-        <div class="bg-fade-bottom"></div>
-        <div class="bg-fade-left"></div>
-        <div class="bg-fade-right"></div>
-    </div>
-
     <div class="container">
         <header>
             <img src="./assets/Logo.jpeg" alt="ReelSage Logo" class="logo">
@@ -521,11 +529,16 @@
             <div class="subtitle">Film for the underdogs.</div>
         </header>
 
-        <!-- Spacer to reveal rotating images -->
-        <div class="img-reveal"></div>
-
         <div class="content-section">
-            <h2 style="text-align: center;">Projects In Development</h2>
+            <div class="abel-banner">
+                <img src="./assets/Abel.jpeg" alt="ReelSage Studios">
+                <div class="smoke-top"></div>
+                <div class="smoke-bottom"></div>
+                <div class="smoke-left"></div>
+                <div class="smoke-right"></div>
+                <h2>Projects In Development</h2>
+            </div>
+            <div class="projects-wrap">
             <div class="projects">
                 <div class="project-card lcr-featured">
                     <div class="poster-wrap">
@@ -574,6 +587,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
 
         <div class="contact">
@@ -581,9 +595,11 @@
             <p style="margin-top: 20px;">ReelSage Studios | Nashville, Tennessee</p>
             <p style="margin-top: 20px;"><a href="mailto:aylareelsagellc@gmail.com">aylareelsagellc@gmail.com</a></p>
             <p><a href="tel:+16154855008">(615) 485-5008</a></p>
-            <div class="cta-buttons" style="margin-top: 40px;">
-                <a href="partners.html" class="cta-button">Partners</a>
-                <a href="press.html" class="cta-button">Press</a>
+            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap;">
+                <a href="https://www.instagram.com/reelsagestudios" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1em; letter-spacing: 1px;">Instagram</a>
+                <a href="https://www.facebook.com/ReelSageStudios/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; background: #1877f2; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1em; letter-spacing: 1px;">Facebook</a>
+                <a href="partners.html" class="cta-button" style="margin: 0;">Partners</a>
+                <a href="press.html" class="cta-button" style="margin: 0;">Press</a>
             </div>
         </div>
 
