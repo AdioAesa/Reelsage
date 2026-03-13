@@ -27,9 +27,11 @@
         header {
             text-align: center;
             padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #2c3e50 0%, #3d5266 100%);
             border-radius: 10px;
-            margin-bottom: 60px;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 2;
         }
 
         .logo {
@@ -75,10 +77,69 @@
         }
 
         .content-section {
-            margin: 60px 0;
+            position: relative;
+            margin: 0;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
+            background: transparent;
+            border-radius: 10px 10px 0 0;
+            z-index: 2;
+        }
+
+        /* Rotating background images — fixed behind content */
+        .bg-rotate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            background: #000;
+        }
+
+        .bg-rotate img {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            height: auto;
+        }
+
+        .bg-fade-top, .bg-fade-bottom, .bg-fade-left, .bg-fade-right {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bg-fade-top {
+            top: 0; left: 0; right: 0;
+            height: 35%;
+            background: radial-gradient(ellipse at center top, rgba(0,0,0,0.9) 0%, transparent 70%);
+        }
+
+        .bg-fade-bottom {
+            bottom: 0; left: 0; right: 0;
+            height: 35%;
+            background: radial-gradient(ellipse at center bottom, rgba(0,0,0,0.9) 0%, transparent 70%);
+        }
+
+        .bg-fade-left {
+            top: 0; bottom: 0; left: 0;
+            width: 15%;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), transparent);
+        }
+
+        .bg-fade-right {
+            top: 0; bottom: 0; right: 0;
+            width: 15%;
+            background: linear-gradient(to left, rgba(0,0,0,0.8), transparent);
+        }
+
+        /* Spacer to reveal images before content scrolls over */
+        .img-reveal {
+            height: 80vh;
+            position: relative;
+            z-index: 1;
         }
 
         h2 {
@@ -345,9 +406,11 @@
         .contact {
             text-align: center;
             padding: 40px;
-            background: rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #2c3e50 0%, #3d5266 100%);
             border-radius: 10px;
             margin-top: 60px;
+            position: relative;
+            z-index: 2;
         }
 
         .contact h2 {
@@ -376,6 +439,8 @@
             margin-top: 60px;
             color: #95a5a6;
             font-size: 0.9em;
+            position: relative;
+            z-index: 2;
         }
 
         .cta-buttons {
@@ -440,12 +505,24 @@
     </style>
 </head>
 <body>
+    <!-- Fixed rotating images -->
+    <div class="bg-rotate">
+        <img src="./assets/Abel.jpeg" alt="">
+        <div class="bg-fade-top"></div>
+        <div class="bg-fade-bottom"></div>
+        <div class="bg-fade-left"></div>
+        <div class="bg-fade-right"></div>
+    </div>
+
     <div class="container">
         <header>
             <img src="./assets/Logo.jpeg" alt="ReelSage Logo" class="logo">
             <div class="tagline">Raw. Gritty. Bold.</div>
             <div class="subtitle">Film for the underdogs.</div>
         </header>
+
+        <!-- Spacer to reveal rotating images -->
+        <div class="img-reveal"></div>
 
         <div class="content-section">
             <h2 style="text-align: center;">Projects In Development</h2>
@@ -481,6 +558,20 @@
                     <p style="margin-top: 20px;"><a href="mailto:aylareelsagellc@gmail.com?subject=Materials%20Request%20-%20Downstream" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Treatment →</a></p>
                     <p style="margin-top: 10px;"><a href="mailto:aylareelsagellc@gmail.com?subject=Investment%20Package%20-%20Downstream" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Investment Package →</a></p>
                     <p style="margin-top: 10px;"><a href="https://reelsage-crew-form.vercel.app/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">📍 Open Crew Submissions →</a></p>
+                </div>
+
+                <div class="project-card lcr-featured">
+                    <div class="poster-wrap">
+                        <img src="./assets/LifeHurts.jpeg" alt="Life Hurts">
+                        <div class="poster-fade"></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="genre">Based on a true story · South Africa, 1983</div>
+                        <p>A fifteen-year-old boy paints himself into a harlequin to escape his small-town invisibility, swept into the streets of Johannesburg by a magnetic, damaged woman who promises to look after him. Over eighteen months of drugs, sex work, and survival, he discovers the mask he built to hide behind is the same mask he must remove to stay alive.</p>
+                        <div class="card-links">
+                            <a href="mailto:aylareelsagellc@gmail.com?subject=Materials%20Request%20-%20Life%20Hurts">Request Materials →</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
