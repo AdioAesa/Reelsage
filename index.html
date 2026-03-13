@@ -168,11 +168,72 @@
             letter-spacing: 1px;
         }
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+        /* Carousel layout */
+        .carousel {
+            position: relative;
             margin-top: 30px;
+            overflow: hidden;
+            padding: 0 5px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+        }
+
+        .carousel-track .project-card {
+            flex: 0 0 calc(33.333% - 14px);
+            min-width: 0;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0,0,0,0.85);
+        }
+
+        .carousel-arrow.left {
+            left: -15px;
+        }
+
+        .carousel-arrow.right {
+            right: -15px;
+        }
+
+        /* Mobile: 1 card at a time */
+        @media (max-width: 768px) {
+            .carousel-track .project-card {
+                flex: 0 0 100%;
+            }
+        }
+
+        /* Tablet: 2 cards */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .carousel-track .project-card {
+                flex: 0 0 calc(50% - 10px);
+            }
+        }
+
+        .projects {
+            display: flex;
+            gap: 20px;
         }
 
         .project-card {
@@ -539,7 +600,10 @@
                 <h2>Projects In Development</h2>
             </div>
             <div class="projects-wrap">
-            <div class="projects">
+            <div class="carousel">
+            <button class="carousel-arrow left" onclick="slideCarousel(-1)">&#8249;</button>
+            <button class="carousel-arrow right" onclick="slideCarousel(1)">&#8250;</button>
+            <div class="carousel-track">
                 <div class="project-card lcr-featured">
                     <div class="poster-wrap">
                         <img src="./assets/TLCRPoster.png" alt="The Last Copper Run">
@@ -588,6 +652,7 @@
                 </div>
             </div>
             </div>
+            </div>
         </div>
 
         <div class="contact">
@@ -610,5 +675,64 @@
         </footer>
     </div>
 
+<script>
+(function() {
+    var track = document.querySelector('.carousel-track');
+    var cards = Array.from(track.children);
+    var pos = 0;
+
+    function getVisible() {
+        if (window.innerWidth <= 768) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
+
+    function update() {
+        var visible = getVisible();
+        var maxPos = Math.max(0, cards.length - visible);
+        if (pos > maxPos) pos = maxPos;
+        if (pos < 0) pos = 0;
+        var gap = 20;
+        var cardWidth = (track.offsetWidth - gap * (visible - 1)) / visible;
+        cards.forEach(function(card) {
+            card.style.flex = '0 0 ' + cardWidth + 'px';
+            card.style.minWidth = cardWidth + 'px';
+        });
+        var offset = pos * (cardWidth + gap);
+        track.style.transform = 'translateX(-' + offset + 'px)';
+        track.style.transition = 'transform 0.4s ease';
+    }
+
+    window.slideCarousel = function(dir) {
+        var visible = getVisible();
+        var maxPos = Math.max(0, cards.length - visible);
+        pos += dir;
+        // Wrap around for infinite loop
+        if (pos > maxPos) pos = 0;
+        if (pos < 0) pos = maxPos;
+        update();
+    };
+
+    // Touch/swipe support
+    var startX = 0, startY = 0, isDragging = false;
+    track.addEventListener('touchstart', function(e) {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+    }, {passive: true});
+    track.addEventListener('touchend', function(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        var diffX = e.changedTouches[0].clientX - startX;
+        var diffY = e.changedTouches[0].clientY - startY;
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+            slideCarousel(diffX < 0 ? 1 : -1);
+        }
+    }, {passive: true});
+
+    window.addEventListener('resize', update);
+    update();
+})();
+</script>
 <script src="https://www.customink.com/fundraising/assets/campaign_widget/fundraising_widget.js"></script>
 </body></html>
