@@ -154,7 +154,7 @@
             position: relative;
             padding: 30px 40px 40px;
             background: linear-gradient(to bottom, transparent 0%, rgba(44,62,80,0.5) 80px, #2c3e50 160px);
-            border-radius: 0 0 10px 10px;
+            border-radius: 0;
             margin-top: -20px;
             z-index: 3;
         }
@@ -471,10 +471,16 @@
             text-align: center;
             padding: 40px;
             background: #0a0a0a;
-            border-radius: 10px;
-            margin-top: 60px;
+            border-radius: 0;
+            margin-top: 0;
             position: relative;
             z-index: 2;
+        }
+
+        .contact-fade {
+            height: 80px;
+            background: linear-gradient(to bottom, #2c3e50, #0a0a0a);
+            margin-top: 0;
         }
 
         .contact h2 {
@@ -798,6 +804,7 @@
             </div>
         </div>
 
+        <div class="contact-fade"></div>
         <div class="contact">
             <h2>Get In Touch</h2>
             <p style="margin-top: 20px;">ReelSage Studios | Nashville, Tennessee</p>
