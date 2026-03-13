@@ -97,8 +97,6 @@
             width: 100%;
             height: auto;
             display: block;
-            min-height: 280px;
-            object-fit: cover;
         }
 
         /* Black smoke fade at top of banner (connects to brand box) */
@@ -212,11 +210,11 @@
         }
 
         .carousel-arrow.left {
-            left: -15px;
+            left: 6px;
         }
 
         .carousel-arrow.right {
-            right: -15px;
+            right: 6px;
         }
 
         /* Mobile: 1 card at a time */
@@ -598,21 +596,40 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+
+            header {
+                padding: 40px 15px;
+            }
+
+            .logo {
+                max-width: 220px;
+            }
+
             h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
 
             .tagline {
-                font-size: 1.3em;
+                font-size: 1.2em;
+                letter-spacing: 2px;
+            }
+
+            .subtitle {
+                font-size: 1em;
+                margin-bottom: 20px;
             }
 
             .mission {
-                font-size: 1.1em;
-                padding: 20px;
+                font-size: 1em;
+                padding: 15px;
             }
 
-            .abel-banner img {
-                min-height: 220px;
+            /* Abel banner mobile */
+            .abel-banner .smoke-top {
+                height: 50px;
             }
 
             .abel-banner .smoke-bottom {
@@ -622,21 +639,63 @@
 
             .abel-banner .smoke-left,
             .abel-banner .smoke-right {
-                width: 30px;
+                width: 20px;
             }
 
             .abel-banner h2 {
-                bottom: 20px;
-                font-size: 1.4em;
+                bottom: 15px;
+                font-size: 1.2em;
             }
 
+            /* Projects mobile */
             .projects-wrap {
-                margin-top: -80px;
-                padding: 20px 15px 30px;
+                margin-top: -60px;
+                padding: 15px 10px 25px;
+            }
+
+            .carousel {
+                padding: 0 30px;
+            }
+
+            .carousel-arrow {
+                width: 28px;
+                height: 28px;
+                font-size: 1em;
+            }
+
+            .carousel-arrow.left {
+                left: 0;
+            }
+
+            .carousel-arrow.right {
+                right: 0;
+            }
+
+            .project-card {
+                padding: 20px;
+            }
+
+            .project-card h3 {
+                font-size: 1.3em;
+            }
+
+            .card-body {
+                padding: 18px 15px 20px;
+            }
+
+            /* Contact mobile */
+            .contact {
+                padding: 30px 15px;
+                margin-top: 40px;
+            }
+
+            .contact p {
+                font-size: 1em;
             }
 
             .contact-buttons {
                 grid-template-columns: 1fr 1fr;
+                gap: 10px;
             }
 
             .cta-btn {
@@ -644,22 +703,38 @@
             }
 
             .social-btn {
-                padding: 14px 10px;
-                font-size: 0.95em;
+                padding: 12px 8px;
+                font-size: 0.9em;
+                letter-spacing: 0.5px;
             }
 
-            .projects {
+            /* Footer mobile */
+            footer {
+                margin-top: 30px;
+                padding: 20px 15px;
+            }
+
+            footer .logo {
+                max-width: 150px !important;
+            }
+        }
+
+        /* Small phones */
+        @media (max-width: 400px) {
+            .tagline {
+                font-size: 1em;
+            }
+
+            .abel-banner h2 {
+                font-size: 1em;
+            }
+
+            .contact-buttons {
                 grid-template-columns: 1fr;
             }
 
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 300px;
+            .social-btn {
+                padding: 14px 10px;
             }
         }
     </style>
@@ -679,7 +754,6 @@
                 <div class="smoke-bottom"></div>
                 <div class="smoke-left"></div>
                 <div class="smoke-right"></div>
-                <h2>Current Slate</h2>
             </div>
             <div class="projects-wrap">
             <div class="carousel">
@@ -705,18 +779,22 @@
                     <h3>The Mercury Veil</h3>
                     <div class="genre">Georgian Gothic Horror</div>
                     <p>The origin story of the Mad Hatter through the lens of mercury poisoning in Georgian hat-making factories. A dark exploration of industrial exploitation and the madness it creates. Currently seeking UK production partnerships.</p>
-                    <p style="margin-top: 20px;"><a href="mailto:aylareelsagellc@gmail.com?subject=Materials%20Request%20-%20The%20Mercury%20Veil" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Treatment →</a></p>
-                    <p style="margin-top: 10px;"><a href="mailto:aylareelsagellc@gmail.com?subject=UK%20Partnership%20Proposal%20-%20The%20Mercury%20Veil" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Partnership Proposal →</a></p>
-                    <p style="margin-top: 10px;"><a href="https://reelsage-crew-form.vercel.app/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">📍 Open Crew Submissions →</a></p>
+                    <div class="card-links" style="margin-top: 20px;">
+                        <a href="mailto:aylareelsagellc@gmail.com?subject=Materials%20Request%20-%20The%20Mercury%20Veil">Treatment →</a>
+                        <a href="mailto:aylareelsagellc@gmail.com?subject=UK%20Partnership%20Proposal%20-%20The%20Mercury%20Veil">Partnership Proposal →</a>
+                        <a href="https://reelsage-crew-form.vercel.app/" target="_blank">📍 Open Crew Submissions →</a>
+                    </div>
                 </div>
 
                 <div class="project-card">
                     <h3>Downstream</h3>
                     <div class="genre">Environmental Thriller</div>
                     <p>A small Tennessee community fights back against corporate contamination poisoning their water supply. A story about justice, accountability, and the courage it takes to stand up when powerful forces want you silent.</p>
-                    <p style="margin-top: 20px;"><a href="mailto:aylareelsagellc@gmail.com?subject=Materials%20Request%20-%20Downstream" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Treatment →</a></p>
-                    <p style="margin-top: 10px;"><a href="mailto:aylareelsagellc@gmail.com?subject=Investment%20Package%20-%20Downstream" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">Investment Package →</a></p>
-                    <p style="margin-top: 10px;"><a href="https://reelsage-crew-form.vercel.app/" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold; border-bottom: 2px solid #3498db; padding-bottom: 2px;">📍 Open Crew Submissions →</a></p>
+                    <div class="card-links" style="margin-top: 20px;">
+                        <a href="mailto:aylareelsagellc@gmail.com?subject=Materials%20Request%20-%20Downstream">Treatment →</a>
+                        <a href="mailto:aylareelsagellc@gmail.com?subject=Investment%20Package%20-%20Downstream">Investment Package →</a>
+                        <a href="https://reelsage-crew-form.vercel.app/" target="_blank">📍 Open Crew Submissions →</a>
+                    </div>
                 </div>
 
                 <div class="project-card lcr-featured">
