@@ -186,36 +186,32 @@
             min-width: 0;
         }
 
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: rgba(0,0,0,0.6);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 50%;
-            color: #fff;
-            font-size: 1.2em;
-            cursor: pointer;
-            z-index: 5;
+        /* Dot indicators */
+        .carousel-dots {
             display: flex;
-            align-items: center;
             justify-content: center;
-            transition: background 0.3s;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .carousel-arrow:hover {
-            background: rgba(0,0,0,0.85);
+        .carousel-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
         }
 
-        .carousel-arrow.left {
-            left: 6px;
+        .carousel-dots span.active {
+            background: rgba(255,255,255,0.7);
+            transform: scale(1.3);
         }
 
-        .carousel-arrow.right {
-            right: 6px;
+        .carousel-dots span:hover {
+            background: rgba(255,255,255,0.5);
         }
+
 
         /* Mobile: 1 card at a time */
         @media (max-width: 768px) {
@@ -654,21 +650,12 @@
             }
 
             .carousel {
-                padding: 0 30px;
+                padding: 0;
             }
 
-            .carousel-arrow {
-                width: 28px;
-                height: 28px;
-                font-size: 1em;
-            }
-
-            .carousel-arrow.left {
-                left: 0;
-            }
-
-            .carousel-arrow.right {
-                right: 0;
+            .poster-wrap img {
+                transform: scale(0.9);
+                transform-origin: top center;
             }
 
             .project-card {
@@ -757,8 +744,6 @@
             </div>
             <div class="projects-wrap">
             <div class="carousel">
-            <button class="carousel-arrow left" onclick="slideCarousel(-1)">&#8249;</button>
-            <button class="carousel-arrow right" onclick="slideCarousel(1)">&#8250;</button>
             <div class="carousel-track">
                 <div class="project-card lcr-featured">
                     <div class="poster-wrap">
@@ -811,6 +796,7 @@
                     </div>
                 </div>
             </div>
+            <div class="carousel-dots"></div>
             </div>
             </div>
         </div>
@@ -839,12 +825,40 @@
 (function() {
     var track = document.querySelector('.carousel-track');
     var cards = Array.from(track.children);
+    var dotsContainer = document.querySelector('.carousel-dots');
+    var carousel = document.querySelector('.carousel');
     var pos = 0;
+    var autoTimer;
 
     function getVisible() {
         if (window.innerWidth <= 768) return 1;
         if (window.innerWidth <= 1024) return 2;
         return 3;
+    }
+
+    // Build dot indicators
+    function buildDots() {
+        dotsContainer.innerHTML = '';
+        var visible = getVisible();
+        var total = Math.max(1, cards.length - visible + 1);
+        for (var i = 0; i < total; i++) {
+            var dot = document.createElement('span');
+            dot.dataset.index = i;
+            dot.addEventListener('click', function() {
+                pos = parseInt(this.dataset.index);
+                update();
+                resetAuto();
+            });
+            dotsContainer.appendChild(dot);
+        }
+        updateDots();
+    }
+
+    function updateDots() {
+        var dots = dotsContainer.children;
+        for (var i = 0; i < dots.length; i++) {
+            dots[i].classList.toggle('active', i === pos);
+        }
     }
 
     function update() {
@@ -860,18 +874,53 @@
         });
         var offset = pos * (cardWidth + gap);
         track.style.transform = 'translateX(-' + offset + 'px)';
-        track.style.transition = 'transform 0.4s ease';
+        track.style.transition = 'transform 0.6s ease';
+        updateDots();
     }
 
-    window.slideCarousel = function(dir) {
+    function advance() {
         var visible = getVisible();
         var maxPos = Math.max(0, cards.length - visible);
-        pos += dir;
-        // Wrap around for infinite loop
+        pos++;
         if (pos > maxPos) pos = 0;
-        if (pos < 0) pos = maxPos;
         update();
-    };
+    }
+
+    function startAuto() {
+        stopAuto();
+        autoTimer = setInterval(advance, 5000);
+    }
+
+    function stopAuto() {
+        if (autoTimer) clearInterval(autoTimer);
+    }
+
+    function resetAuto() {
+        stopAuto();
+        startAuto();
+    }
+
+    // Pause on hover (desktop), resume on leave
+    var hovered = false;
+    carousel.addEventListener('mouseenter', function() {
+        hovered = true;
+        stopAuto();
+    });
+    carousel.addEventListener('mouseleave', function() {
+        hovered = false;
+        startAuto();
+    });
+
+    // Click to advance (desktop)
+    carousel.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        var visible = getVisible();
+        var maxPos = Math.max(0, cards.length - visible);
+        pos++;
+        if (pos > maxPos) pos = 0;
+        update();
+        if (!hovered) resetAuto();
+    });
 
     // Touch/swipe support
     var startX = 0, startY = 0, isDragging = false;
@@ -879,19 +928,32 @@
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
         isDragging = true;
+        stopAuto();
     }, {passive: true});
     track.addEventListener('touchend', function(e) {
         if (!isDragging) return;
         isDragging = false;
         var diffX = e.changedTouches[0].clientX - startX;
         var diffY = e.changedTouches[0].clientY - startY;
-        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-            slideCarousel(diffX < 0 ? 1 : -1);
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 30) {
+            var visible = getVisible();
+            var maxPos = Math.max(0, cards.length - visible);
+            pos += (diffX < 0 ? 1 : -1);
+            if (pos > maxPos) pos = 0;
+            if (pos < 0) pos = maxPos;
+            update();
         }
+        startAuto();
     }, {passive: true});
 
-    window.addEventListener('resize', update);
+    window.addEventListener('resize', function() {
+        buildDots();
+        update();
+    });
+
+    buildDots();
     update();
+    startAuto();
 })();
 </script>
 <script src="https://www.customink.com/fundraising/assets/campaign_widget/fundraising_widget.js"></script>
