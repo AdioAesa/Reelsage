@@ -498,9 +498,9 @@
         }
 
         .contact-buttons {
-            display: grid;
-            grid-template-columns: repeat(4, auto);
+            display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 12px;
             margin-top: 30px;
         }
@@ -531,6 +531,16 @@
 
         .fb-btn {
             background: #1877f2;
+        }
+
+        .imdb-btn {
+            background: #f5c518;
+            color: #000;
+            font-weight: 900;
+        }
+
+        .imdb-btn:hover {
+            color: #000;
         }
 
         .cta-btn {
@@ -671,6 +681,7 @@
             }
 
             .contact-buttons {
+                display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 10px;
             }
@@ -798,6 +809,7 @@
             <p><a href="tel:+16154855008">(615) 485-5008</a></p>
             <div class="contact-buttons">
                 <a href="https://www.instagram.com/reelsagestudios" target="_blank" class="social-btn ig-btn">Instagram</a>
+                <a href="https://pro.imdb.com/company/co1176884?from_app=ios&ref_=ext_shr_lnk" target="_blank" class="social-btn imdb-btn">IMDb</a>
                 <a href="https://www.facebook.com/ReelSageStudios/" target="_blank" class="social-btn fb-btn">Facebook</a>
                 <a href="partners.html" class="social-btn cta-btn">Partners</a>
                 <a href="press.html" class="social-btn cta-btn">Press</a>
